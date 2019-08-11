@@ -62,6 +62,18 @@ $(document).ready(function () {
         console.log(childSnapshot.val().Frequency);
 
 
+        let newRow = $("<tr>")
+        let newRowName = $("<td>").text(childSnapshot.val().Name);
+        let newRowDiv = newRow.append(newRowName);
+        $("#tableBody").append(newRowDiv);
+
+        let rowDestination = $("<td>").text(childSnapshot.val().Destination);
+        newRow.append(rowDestination);
+
+        let rowFrequency = $("<td>").text(childSnapshot.val().Frequency);
+        newRow.append(rowFrequency);
+
+
     });
 });
 
