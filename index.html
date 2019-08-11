@@ -3,23 +3,85 @@
 <html>
 
 <head>
-  <meta charset="UTF-8">
-  <title>GifTastic</title>
-  <link rel="stylesheet" href="./assets/CSS/style.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-    crossorigin="anonymous"></script>
-  <script type="text/javascript" src="./assets/javascript/app.js"></script>
+    <meta charset="UTF-8">
+    <title>Train Schedule</title>
+    <link rel="stylesheet" href="./assets/CSS/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-database.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./assets/javascript/app.js"></script>
 
 </head>
 
 <body>
-  <header>
+    <header>
+        <div class="jumbotron jumbotron-fluid bg-dark">
+            <div class="container">
+                <h1 class="display-4 text-light text-center">New England Train Schedule</h1>
+                <p class="lead text-light text-center">Train schedule for your favorite New England locations!</p>
+            </div>
+        </div>
 
-   
 
-  </header>
+    </header>
+
+    <div class="card m-5">
+        <div class="card-header bg-info text-light font-weight-bold">
+            Current Employees
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Train Name</th>
+                        <th scope="col">Destination</th>
+                        <th scope="col">Frequency (min)</th>
+                        <th scope="col">Next Arrival</th>
+                        <th scope="col">Minutes Away</th>
+                    </tr>
+                <tbody id="tableBody">
+
+                </tbody>
+
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="card m-5">
+        <div class="card-header bg-info text-light font-weight-bold">
+            Add Train
+        </div>
+        <div class="card-body">
+            <form>
+                <div class="form-group">
+                    <label for="exampleInputName" class="font-weight-bold">Train Name</label>
+                    <input type="name" class="form-control" id="trainName">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputRole" class="font-weight-bold">Destination</label>
+                    <input type="name" class="form-control" id="trainDestination">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputDate" class="font-weight-bold">First Train Time (HH:mm - military
+                        time)</label>
+                    <input type="name" class="form-control" id="trainTime">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputRate" class="font-weight-bold">Frequency (min)</label>
+                    <input type="name" class="form-control" id="trainFrequency">
+                </div>
+
+                <button id="submitBtn" type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
 
 
 
