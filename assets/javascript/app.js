@@ -85,8 +85,13 @@ $(document).ready(function () {
         let minutesTillTrain = trainFrequency - tRemainder;
         console.log(minutesTillTrain);
 
-        var nextTrain = moment().add(minutesTillTrain, "minutes");
+        let nextTrain = moment().add(minutesTillTrain, "minutes").format("hh:mm a");
         console.log(nextTrain);
+
+        
+        
+
+        
 
 
         let newRow = $("<tr>")
@@ -100,7 +105,7 @@ $(document).ready(function () {
         let rowFrequency = $("<td>").text(childSnapshot.val().Frequency);
         newRow.append(rowFrequency);
 
-        let rowNextArrival = $("<td>").text("PENDING");
+        let rowNextArrival = $("<td>").text(nextTrain);
         newRow.append(rowNextArrival);
         
         let rowMinutesAway = $("<td>").text(minutesTillTrain);
