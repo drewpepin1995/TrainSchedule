@@ -70,12 +70,12 @@ $(document).ready(function () {
         let trainDestination = childSnapshot.val().Destination;
         let trainFrequency = childSnapshot.val().Frequency;
 
-        console.log(trainName);
-        console.log(trainFrequency);
+        console.log("Train Name : " + trainName);
+        console.log("Train Frequency : " + trainFrequency);
 
 
         let newTrainTime = moment(trainTime, 'hh:mm').format('hh:mm a')
-        console.log(newTrainTime);
+        console.log("First Train Time : " + newTrainTime);
 
         let trainTimeConverted = moment(trainTime, 'hh:mm').subtract(1, 'years');
 
@@ -86,7 +86,7 @@ $(document).ready(function () {
         console.log(tRemainder);
 
         let minutesTillTrain = trainFrequency - tRemainder;
-        console.log(minutesTillTrain);
+        console.log("Minutes until next train : " + minutesTillTrain);
 
         let nextTrain = moment().add(minutesTillTrain, 'minutes');
         nextTrain = moment(nextTrain).format('hh:mm a');
