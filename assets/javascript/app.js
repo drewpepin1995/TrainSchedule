@@ -1,4 +1,11 @@
 $(document).ready(function () {
+
+
+    let currentTime = moment().format("hh:mm")
+
+
+
+
     let firebaseConfig = {
         apiKey: "AIzaSyCuvwZjCDz2FzvKfmyEhkCSDf_zmZvFSWQ",
         authDomain: "train-schedule-40081.firebaseapp.com",
@@ -35,6 +42,8 @@ $(document).ready(function () {
         let trainTime = $("#trainTime").val().trim();
         let trainFrequency = $("#trainFrequency").val().trim();
 
+
+
         alert("New train added!")
 
         $("#trainName").val("")
@@ -56,10 +65,28 @@ $(document).ready(function () {
     trainRef.on("child_added", function (childSnapshot) {
         const data = childSnapshot.val();
 
-        console.log(childSnapshot.val().Name);
-        console.log(childSnapshot.val().Time);
-        console.log(childSnapshot.val().Destination);
-        console.log(childSnapshot.val().Frequency);
+        let trainName = childSnapshot.val().Name;
+        let trainTime = childSnapshot.val().Time;
+        let trainDestination = childSnapshot.val().Destination;
+        let trainFrequency = childSnapshot.val().Frequency;
+
+
+        let newTrainTime = moment(trainTime, 'hh:mm').format('hh:mm a')
+        console.log(newTrainTime);
+
+        let trainTimeConverted = moment(trainTime, 'hh:mm');
+
+        let timeDiff = moment().diff(trainTimeConverted, "minutes");
+        console.log(timeDiff);
+
+        let tRemainder = timeDiff % trainFrequency;
+        console.log(tRemainder);
+
+        let minutesTillTrain = trainFrequency - tRemainder;
+        console.log(minutesTillTrain);
+
+        var nextTrain = moment().add(minutesTillTrain, "minutes");
+        console.log(nextTrain);
 
 
         let newRow = $("<tr>")
@@ -72,6 +99,12 @@ $(document).ready(function () {
 
         let rowFrequency = $("<td>").text(childSnapshot.val().Frequency);
         newRow.append(rowFrequency);
+
+        let rowNextArrival = $("<td>").text("PENDING");
+        newRow.append(rowNextArrival);
+        
+        let rowMinutesAway = $("<td>").text(minutesTillTrain);
+        newRow.append(rowMinutesAway);
 
 
     });
