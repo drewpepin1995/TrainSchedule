@@ -1,0 +1,12 @@
+#jumbotron {
+    background-image: url(../images/fenway.jpg);
+    background-position: center;
+    background-size: cover;
+    border-bottom: 3px solid white;
+}
+
+body {
+    background-image: url(../images/background2.jpg);
+    background-position: auto;
+    background-size: cover;
+}
