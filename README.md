@@ -5,3 +5,11 @@ The Train schedule app is a train schedule that is constantly updating by pullin
 ![](/assets/images/schedule.png)
 
 The train schedule is where the train times are constantly updating. The next arrival and minutes until arrival are udpating by the minute on refresh so you always know when the next train is set to arrive. 
+
+![](/assets/images/addTrain.png)
+
+The add train form is where you can choose to add your own train to the schedule. The data is then submitted on click of the add button and the new train will be shown in the train schedule, and the times will begin constantly updating.
+
+![](/assets/images/firebase.png)
+
+The firebase is where the train data is stored, and whenever a new train is added, it is pulled from firebase and added to the train schedule.
